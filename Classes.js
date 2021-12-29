@@ -17,8 +17,30 @@
  * after you are done with the class, create at least 3 objects of type Actor of your favorite actors
  */
 class Person {
-  // continue the code here
+  constructor(firstName,lastName,gender,birthYear,interests){
+    this.firstName = firstName;
+    this.lastName = lastName;
+    this.gender = gender;
+    this.birthYear = birthYear;
+    this.interests = interests;
+  }
+  printName = (printName) =>
+  console.log(printName =  this.firstName + " " + this.lastName);
+
+  calculateAge = (currentYear) =>
+  console.log(currentYear = 2021 - this.birthYear);
+
+  addInterest = (newInterest) => 
+  console.log(newInterest = this.interests + " " + [`${newInterest}`]);
 }
+
+const p1 = new Person("Abdulrahman", "Alkandari", "Male", 1994, [`Dancing`]);
+
+p1.printName();
+p1.calculateAge();
+p1.addInterest([`Diving`]);
+
+
 
 /** (Question 2): (15000 Points)
  * 1. Write a class `Movie`, give it the following properties
@@ -42,7 +64,23 @@ class Person {
  */
 
 class Movie {
-  // continue the code here
+  constructor(title,duration,genre) {
+    this.title = title;
+    this.duration = duration;
+    this.genre = genre;
+    this.rating = [];
+  }
+    rate(rating){
+      if (rating >= 0 && rating <= 10 ){
+         this.rating.push(rating);
+      }
+     else {
+     console.log("The rating input is invalid");
+     }
+    }
+    
+    
+
 }
 
 /** (Question 3): (1000 Points)
@@ -54,4 +92,19 @@ class Movie {
  * +
  */
 
-// write the class here
+class Actor extends Person{
+
+  movies = [];
+
+    addMovie = (movie) =>
+      this.movies.push(movie);
+      } 
+    
+    const hayat = new Actor("hayat","Alfahad", "Female", 1950);
+
+hayat.addMovie(
+  new Movie("Theman 3omry",200,"tragedy","action")
+  );
+
+    console.log(hayat.movies);
+
